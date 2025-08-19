@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estudio Nocturno – Fotografía Profesional</title>
+  <meta name="description" content="Portafolio y servicios de fotografía profesional. Retrato, eventos, productos y más. México." />
+  <meta name="theme-color" content="#000000" />
+  <style>
+    :root{
+      --bg:#0b0b0b; 
+      --text:#ffffff; 
+      --muted:#b3b3b3;
+      --accent:#9e77ff; /* puedes cambiar el acento */
+      --card:#111112;
+      --border:#1f1f1f;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a{color:var(--text); text-decoration: none}
+    a:hover{opacity:.9}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    header{
+      position: sticky; top:0; z-index: 50;
+      backdrop-filter: blur(8px);
+      background: rgba(11,11,11,.6);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .logo{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.5px}
+    .logo-dot{width:10px; height:10px; border-radius:999px; background: var(--accent); display:inline-block}
+    .nav a{color:var(--muted); margin:0 10px; font-weight:600}
+    .nav a.active{color:var(--text)}
+
+    .hero{padding:80px 0 40px; display:grid; grid-template-columns:1.1fr .9fr; gap:28px}
+    .hero h1{font-size: clamp(34px, 6vw, 64px); line-height:1.05; margin:0 0 12px}
+    .hero p{color:var(--muted); font-size: clamp(16px, 2.2vw, 20px)}
+    .cta{display:flex; gap:12px; margin-top:18px}
+    .btn{
+      padding:12px 18px; border-radius:14px; border:1px solid var(--border);
+      background:var(--card); color:var(--text); font-weight:700; cursor:pointer;
+      transition: transform .06s ease;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{background: linear-gradient(135deg, var(--accent), #5d46ff)}
+
+    .hero .frame{border:1px solid var(--border); background:linear-gradient( to bottom right, #0e0e10, #0a0a0a); border-radius:18px; overflow:hidden}
+    .hero .frame .img{
+      aspect-ratio: 4/3; width:100%;
+      background: center/cover no-repeat url('https://images.unsplash.com/photo-1518373714866-3f1478910cc5?q=80&w=1600&auto=format&fit=crop');
+      filter: contrast(1.05) saturate(.95);
+    }
+
+    section{padding:60px 0; border-top:1px solid var(--border)}
+    h2{font-size: clamp(26px, 4vw, 40px); margin:0 0 8px}
+    .sub{color:var(--muted); margin:0 0 24px}
+
+    /* Portafolio */
+    .grid{display:grid; gap:14px}
+    .grid.portfolio{grid-template-columns: repeat(2, 1fr)}
+    @media (min-width: 900px){ .grid.portfolio{grid-template-columns: repeat(3, 1fr)} }
+    .card{position:relative; overflow:hidden; border-radius:16px; background:var(--card); border:1px solid var(--border)}
+    .card .ph{aspect-ratio: 4/5; background:#0f0f10 center/cover no-repeat}
+    .card .cap{position:absolute; left:0; right:0; bottom:0; padding:10px 12px; background:linear-gradient(180deg, transparent, rgba(0,0,0,.65)); font-weight:600}
+
+    /* Servicios & Precios */
+    .pricing{display:grid; gap:16px}
+    @media (min-width: 880px){ .pricing{grid-template-columns: repeat(3, 1fr)} }
+    .price-card{border:1px solid var(--border); border-radius:18px; padding:20px; background:linear-gradient(180deg, #101011, #0c0c0d)}
+    .price-card h3{margin:6px 0 8px}
+    .price{font-size:28px; font-weight:800}
+    .chip{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid var(--border); color:var(--muted); font-size:12px; letter-spacing:.3px}
+    ul.clean{padding-left:18px; margin:10px 0 0}
+
+    /* Contacto */
+    .contact{display:grid; gap:24px; align-items:start}
+    @media (min-width: 960px){ .contact{grid-template-columns: 1.1fr .9fr} }
+    .panel{border:1px solid var(--border); border-radius:18px; padding:20px; background:linear-gradient(180deg, #101011, #0c0c0d)}
+    .info-row{display:grid; grid-template-columns:120px 1fr; gap:10px; padding:10px 0; border-bottom:1px dashed #222}
+    .info-row:last-child{border-bottom:none}
+
+    label{display:block; font-weight:700; margin-bottom:8px}
+    input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#0e0e10; color:var(--text)}
+    textarea{min-height:130px}
+    .small{font-size:12px; color:var(--muted)}
+
+    footer{border-top:1px solid var(--border); padding:18px 0; color:var(--muted); text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><span class="logo-dot"></span> Estudio Nocturno</div>
+      <nav>
+        <a href="#inicio" class="active">Inicio</a>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div>
+        <h1>Fotografía profesional en <span style="color:var(--accent)">CDMX</span></h1>
+        <p>Retrato, eventos, producto y contenido para marcas. Iluminación cuidada, edición detallista y entrega rápida en formatos listos para redes e impresión.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contacto">Reserva tu sesión</a>
+          <a class="btn" href="#portafolio">Ver portafolio</a>
+        </div>
+        <p class="small" style="margin-top:10px">RFC electrónico, factura disponible. Cobertura en CDMX y área metropolitana.</p>
+      </div>
+      <div class="frame">
+        <div class="img" role="img" aria-label="Retrato creativo con iluminación dramática"></div>
+      </div>
+    </section>
+
+    <!-- PORTAFOLIO -->
+    <section id="portafolio">
+      <h2>Portafolio</h2>
+      <p class="sub">Una muestra de trabajos recientes. Puedes reemplazar las imágenes por tus fotos.</p>
+      <div class="grid portfolio">
+        <figure class="card"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop')"></div><figcaption class="cap">Retrato Editorial</figcaption></figure>
+        <figure class="card"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1526178618718-4ae1f7a80789?q=80&w=1200&auto=format&fit=crop')"></div><figcaption class="cap">Bodas & Eventos</figcaption></figure>
+        <figure class="card"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1511910849309-0dffb057d0b2?q=80&w=1200&auto=format&fit=crop')"></div><figcaption class="cap">Producto</figcaption></figure>
+        <figure class="card"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1520975922324-c2e8e589f168?q=80&w=1200&auto=format&fit=crop')"></div><figcaption class="cap">Moda</figcaption></figure>
+        <figure class="card"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop')"></div><figcaption class="cap">Arquitectura</figcaption></figure>
+        <figure class="card"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop')"></div><figcaption class="cap">Gastronomía</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <h2>Servicios & Precios</h2>
+      <p class="sub">Paquetes en MXN. Personaliza cualquier opción según tus necesidades.</p>
+      <div class="pricing">
+        <div class="price-card">
+          <span class="chip">Ideal redes</span>
+          <h3>Retrato Express</h3>
+          <div class="price">$1,200 MXN</div>
+          <ul class="clean">
+            <li>30 min de sesión en estudio</li>
+            <li>1 cambio de outfit</li>
+            <li>5 fotos editadas en alta</li>
+            <li>Entrega en 48 horas</li>
+          </ul>
+          <div class="cta"><a class="btn" href="#contacto">Agendar</a></div>
+        </div>
+        <div class="price-card">
+          <span class="chip">Más popular</span>
+          <h3>Evento Social</h3>
+          <div class="price">$4,800 MXN</div>
+          <ul class="clean">
+            <li>Hasta 4 horas de cobertura</li>
+            <li>Galería online privada</li>
+            <li>100+ fotos editadas</li>
+            <li>USB opcional</li>
+          </ul>
+          <div class="cta"><a class="btn" href="#contacto">Cotizar</a></div>
+        </div>
+        <div class="price-card">
+          <span class="chip">Marcas</span>
+          <h3>Producto/Contenido</h3>
+          <div class="price">Desde $2,500 MXN</div>
+          <ul class="clean">
+            <li>Hasta 10 productos</li>
+            <li>Fondo blanco o creativo</li>
+            <li>Optimizado para e‑commerce</li>
+            <li>Derechos de uso comercial</li>
+          </ul>
+          <div class="cta"><a class="btn" href="#contacto">Pedir propuesta</a></div>
+        </div>
+      </div>
+      <p class="small">* Precios base en CDMX. Desplazamientos y extras se cotizan aparte. Factura + IVA.</p>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p class="sub">¿Listo para crear algo increíble? Escríbeme por WhatsApp, llamada o correo.</p>
+      <div class="contact">
+        <div class="panel">
+          <div class="info-row"><strong>Teléfono</strong> <div><a href="tel:+525512345678">+52 55 1234 5678</a></div></div>
+          <div class="info-row"><strong>WhatsApp</strong> <div><a href="https://wa.me/525512345678" target="_blank" rel="noopener">+52 55 1234 5678</a></div></div>
+          <div class="info-row"><strong>Email</strong> <div><a href="mailto:hola@estudionoctruno.mx">hola@estudionocturno.mx</a></div></div>
+          <div class="info-row"><strong>Instagram</strong> <div><a href="#" aria-label="Instagram">@estudionoctruno</a></div></div>
+          <div class="info-row"><strong>Horario</strong> <div>Lun–Sáb, 10:00–19:00</div></div>
+          <div class="info-row"><strong>Ubicación</strong> <div>CDMX · Citas con previa confirmación</div></div>
+        </div>
+        <form class="panel" id="formContacto" novalidate>
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" placeholder="Tu nombre" required />
+          <label for="correo">Correo</label>
+          <input id="correo" name="correo" type="email" placeholder="tucorreo@ejemplo.com" required />
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntame tu idea o fecha del evento" required></textarea>
+          <div class="cta"><button type="submit" class="btn primary">Enviar</button><span id="status" class="small" aria-live="polite"></span></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Estudio Nocturno · Aviso de privacidad</div>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Navegación activa al hacer scroll
+    const links = [...document.querySelectorAll('header nav a')];
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        const id = '#' + e.target.id;
+        const link = links.find(l=> l.getAttribute('href')===id);
+        if(link){ e.isIntersecting ? link.classList.add('active') : link.classList.remove('active'); }
+      })
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    document.querySelectorAll('main section').forEach(s=>obs.observe(s));
+
+    // Envío básico del formulario (abre correo)
+    const f = document.getElementById('formContacto');
+    f.addEventListener('submit', (ev)=>{
+      ev.preventDefault();
+      const nombre = f.nombre.value.trim();
+      const correo = f.correo.value.trim();
+      const mensaje = f.mensaje.value.trim();
+      if(!nombre || !correo || !mensaje){
+        document.getElementById('status').textContent = 'Completa todos los campos.';
+        return;
+      }
+      const asunto = encodeURIComponent('Nueva consulta de ' + nombre);
+      const cuerpo = encodeURIComponent(`Nombre: ${nombre}\nCorreo: ${correo}\n\nMensaje:\n${mensaje}`);
+      window.location.href = `mailto:hola@estudionocturno.mx?subject=${asunto}&body=${cuerpo}`;
+      document.getElementById('status').textContent = 'Abriendo tu app de correo…';
+    });
+  </script>
+</body>
+</html>
